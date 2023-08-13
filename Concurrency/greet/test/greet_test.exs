@@ -3,7 +3,7 @@ defmodule GreetTest do
 
   test "sending a greet message" do
     pid = Greet.start()
-    send pid, {:greet, "Godfrey"}
+    send pid, {:greet, "Godfrey"} == "Hello Godfrey"
 
     #assert_receive {:greet, name} when name == "Godfrey"
     # Add any additional assertions here if needed
