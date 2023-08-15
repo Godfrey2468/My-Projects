@@ -23,18 +23,16 @@ iex(1)> {:ok, pid} = Bank.start_link(1000)
 {:ok, #PID<0.132.0>}
 iex(2)> spawn(fn -> Bank.deposit(pid, 100) end)
 #PID<0.133.0>
-iex(3)> spawn(fn -> Bank.withdraw(pid, 50) end)   
-#PID<0.134.0>
 iex(4)> spawn(fn -> Bank.deposit(pid, 100) end)
-#PID<0.135.0>
+#PID<0.134.0>
 iex(5)> spawn(fn -> Bank.deposit(pid, 100) end)
-#PID<0.136.0>
+#PID<0.135.0>
 iex(6)> spawn(fn -> Bank.deposit(pid, 100) end)
-#PID<0.137.0>
+#PID<0.136.0>
 iex(7)> spawn(fn -> Bank.deposit(pid, 100) end)
-#PID<0.138.0>
+#PID<0.137.0>
 iex(8)> Bank.balance(pid)
-1450
+1500
 ```
 3.**Concurrent Withdrawals**
 
