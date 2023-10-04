@@ -1,0 +1,23 @@
+<.header>
+  Listing Session
+  <:actions>
+    <.link href={~p"/session/new"}>
+      <.button>New Session</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="session" rows={@session_collection} row_click={&JS.navigate(~p"/session/#{&1}")}>
+  <:col :let={session} label="New"><%= session.new %></:col>
+  <:action :let={session}>
+    <div class="sr-only">
+      <.link navigate={~p"/session/#{session}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/session/#{session}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={session}>
+    <.link href={~p"/session/#{session}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

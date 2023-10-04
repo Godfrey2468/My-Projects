@@ -35,6 +35,11 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :guardian, Guardian.DB,
+repo: RealDealApi.Repo,
+schema_name: "guardian_tokens",
+sweep_interval: 60
+
 
 
 # Import environment specific config. This must remain at the bottom

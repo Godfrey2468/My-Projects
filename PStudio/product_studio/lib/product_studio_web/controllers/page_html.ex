@@ -1,0 +1,5 @@
+defmodule ProductStudioWeb.PageHTML do
+  use ProductStudioWeb, :html
+
+  embed_templates "page_html/*"
+end
