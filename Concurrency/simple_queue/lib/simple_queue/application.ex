@@ -3,7 +3,7 @@ defmodule SimpleQueue.Application do
 
   def start(_type, _args) do
     children = [
-      {SimpleQueue, [1, 2, 3]}
+      {SimpleQueue, []}
     ]
 
     opts = [strategy: :one_for_one, name: SimpleQueue.Supervisor]

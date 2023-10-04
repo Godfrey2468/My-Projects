@@ -1,0 +1,51 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+/* In your CSS file (e.g., app.css or a dedicated CSS file for this component) */
+
+/* Style for the container */
+#light {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  /* Style for the meter */
+  .meter {
+    background-color: #f0f0f0;
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  
+  /* Style for the filled portion of the meter */
+  .meter span {
+    display: block;
+    height: 100%;
+    background-color: #dbd334; /* Adjust the color as needed */
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Style for the button container */
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Style for the image inside the button */
+  button img {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    padding: 5px; /* Add padding for spacing */
+  }
+  
+  /* Style for the h1 header */
+  h1 {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 20px;
+  }
+  
