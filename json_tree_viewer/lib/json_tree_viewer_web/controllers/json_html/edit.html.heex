@@ -1,0 +1,8 @@
+<.header>
+  Edit Json <%= @json.id %>
+  <:subtitle>Use this form to manage json records in your database.</:subtitle>
+</.header>
+
+<.json_form changeset={@changeset} action={~p"/jsons/#{@json}"} />
+
+<.back navigate={~p"/jsons"}>Back to jsons</.back>

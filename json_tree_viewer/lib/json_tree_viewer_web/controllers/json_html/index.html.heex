@@ -1,0 +1,22 @@
+<.header>
+  Listing Jsons
+  <:actions>
+    <.link href={~p"/jsons/new"}>
+      <.button>New Json</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="jsons" rows={@jsons} row_click={&JS.navigate(~p"/jsons/#{&1}")}>
+  <:action :let={json}>
+    <div class="sr-only">
+      <.link navigate={~p"/jsons/#{json}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/jsons/#{json}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={json}>
+    <.link href={~p"/jsons/#{json}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

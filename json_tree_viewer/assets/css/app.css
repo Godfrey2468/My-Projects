@@ -1,0 +1,31 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+
+
+.json-tree {
+    font-family: Arial, sans-serif;
+  }
+  
+  .json-node {
+    margin-left: 20px;
+  }
+  
+  .json-key {
+    font-weight: bold;
+  }
+  
+  .json-array {
+    margin-left: 20px;
+  }
+  
+  .json-string {
+    color: #008000;
+  }
+  
+  .json-number {
+    color: #0000ff;
+  }
+  

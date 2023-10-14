@@ -1,0 +1,19 @@
+<.header>
+  Json <%= @json.id %>
+  <:subtitle>This is a json record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/jsons/#{@json}/edit"}>
+      <.button>Edit json</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<div class="json-tree">
+  <%= render_json(@json) %>
+</div>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/jsons"}>Back to jsons</.back>
+
