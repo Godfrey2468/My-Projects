@@ -35,15 +35,7 @@ defmodule TsbankWeb.Auth.Guardian do
 
     # use this to login or to get our token
     def authenticate(email, password) do
-#     jj =  IO.inspect(get_id_on(email))
-#    hh = IO.inspect(get_me_id(jj))
-# IO.puts("efrefegf")
-   #IO.inspect(Plug.Conn.put_session(:customer_id, hh))
 
-   #IO.inspect(Users.get_customer_user(hh))
-
-
-   #IO.inspect(Users.get_full_userhhh(jj))
       case Users.get_user_by_email(email) do
         nil -> {:error, :unauthorized} # this works for the error response plug ehrn using it by other side
         user ->
@@ -60,10 +52,7 @@ defmodule TsbankWeb.Auth.Guardian do
       case Users.get_user_by_email(email) do
         nil -> {:error, :unauthorized} # this works for the error response plug ehrn using it by other side
         user -> user.id
-          # case validate_password(password, IO.inspect(user.id)) do
-          #   true -> create_token(user, :access)
-          #   false -> {:error, :unauthorized}
-          # end
+
 
       end
     end
@@ -105,16 +94,7 @@ defmodule TsbankWeb.Auth.Guardian do
       end
     end
 
-    # another function
 
-    # def authenticate(token) do
-    #   with {:ok, claims} <- decode_and_verify(token),
-    #        {:ok, user} <- resource_from_claims(claims),
-    #        {:ok, _old, {new_token, _claims}} <- refresh(token) do
-
-    #     {:ok, user, new_token}
-    #   end
-    # end
 
     def validate_password(password, jpassword) do
       Bcrypt.verify_pass(password, jpassword)

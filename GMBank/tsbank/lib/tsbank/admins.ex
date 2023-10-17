@@ -49,10 +49,22 @@ defmodule Tsbank.Admins do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_admin(attrs \\ %{}) do
-    %Admin{}
+  def create_admin(user, attrs \\ %{}) do
+    user
+    |> Ecto.build_assoc(:admin)
     |> Admin.changeset(attrs)
     |> Repo.insert()
+  end
+
+
+
+
+
+  def get_full_admin(id) do
+    Admin
+    |> where(id: ^id)
+    |> preload([:user])
+    |> Repo.one()
   end
 
   @doc """

@@ -4,7 +4,7 @@ defmodule Tsbank.Repo.Migrations.CreateAdmins do
   def change do
     create table(:admins) do
       add :role, :string
-      add :user_id, references(:users, on_delete: :nothing)
+      add :user_id, references(:users, on_delete: :nothing, type: :uuid)
 
       timestamps()
     end

@@ -34,7 +34,7 @@ defmodule TsbankWeb.UserController do
     end
   end
 
-  #############################Create Admin###################################
+  ##################Create Admin###################################
   def create_admin(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Users.create_user(user_params),
     {:ok, token, _claims} <- Guardian.encode_and_sign(user),

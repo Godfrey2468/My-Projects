@@ -27,9 +27,9 @@ defmodule TsbankWeb.Router do
 
   pipeline :auth do
     plug TsbankWeb.Auth.Pipeline
-    #plug TsbankWeb.Auth.SetCustomer
+
     plug TsbankWeb.Auth.SetAccount
-    #plug TsbankWeb.Auth.SetCustomer
+
   end
 
   pipeline :ass do
@@ -49,7 +49,7 @@ defmodule TsbankWeb.Router do
 
   # For protected endpoints
   scope "/api/v1", TsbankWeb do
-    pipe_through [:api, :auth ] # it goes through both pipelines
+    pipe_through [:api, :auth ]
 
     post "/accounts", AccountController, :create
     post "/accounts/:account_id/deposit", TransactionController, :create
@@ -57,14 +57,12 @@ defmodule TsbankWeb.Router do
     get "/customers/:customer_id/accounts", AccountController, :all_accounts
     get "/customers/accounts/all", AccountController, :all_accounts_customer
     get "/accounts/:account_id", AccountController, :view_spec_acc
-   # post "/trans", TransactionController, :create
-  end
-  # Other scopes may use custom stacks.
-  # scope "/api", TsbankWeb do
-  #   pipe_through :api
-  # end
+    post "/admin/create", UserController, :create_admin
+    patch "/accounts/:account_id/update", AccountController, :update_status
 
-  # Enable LiveDashboard and Swoosh mailbox preview in development
+  end
+
+
   if Application.compile_env(:tsbank, :dev_routes) do
     # If you want to use the LiveDashboard in production, you should put
     # it behind authentication and allow only admins to access it.

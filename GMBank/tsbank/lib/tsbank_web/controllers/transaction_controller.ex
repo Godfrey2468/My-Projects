@@ -29,26 +29,7 @@ defmodule TsbankWeb.TransactionController do
     #function to get account id but pass customer id
     cust_id_st = IO.inspect(Guardian.get_me_account_id(customer_id_by))
     acc_struct = IO.inspect(Accounts.get_account_id_use(cust_id_st))
-    # Do the genserver staff here
-    # IO.inspect(BankRegistry.start_link())
-    # map = account_params
-    # IO.inspect(Map.fetch(map, "accountNumber"))
-    # hata = IO.inspect( map["accountNumber"])
-    # hata1 = IO.inspect( map["balance"])
-    # IO.inspect(BankAccount.start_link(hata, hata1))
-    # IO.inspect(BankAccount.whereis(hata))
-    ## Genserver and registry staff
-    #~~~~~~~~~~~~~~
-    #IO.inspect(BankRegistry.start_link())
-    # map = account_params
-    # IO.inspect(Map.fetch(map, "accountNumber"))
-    # hata = IO.inspect( map["accountNumber"])
-    # hata1 = IO.inspect( map["balance"])
-    # IO.inspect(BankAccount.start_link(hata, hata))
-    # IO.inspect(BankAccount.whereis(hata))
-    #~~~~~~~~~~~~~~
-    # my_map = transaction_params
-    #get_account_id_use
+
     IO.puts("Do some debuggings")
     with {:ok, %Transaction{} = transaction} <- Transactions.create_transaction(acc_struct,transaction_params),
     name_acc  <- IO.inspect(Guardian.get_that_account_name(account_id)),
@@ -77,7 +58,7 @@ defmodule TsbankWeb.TransactionController do
     cust_id_st = IO.inspect(Guardian.get_me_account_id(customer_id_by))
     acc_struct = IO.inspect(Accounts.get_account_id_use(cust_id_st))
 
-    IO.puts("Do some debuggings")
+    IO.puts("Debug")
     with {:ok, %Transaction{} = transaction} <- Transactions.create_transaction(acc_struct,transaction_params),
     name_acc  <- IO.inspect(Guardian.get_that_account_name(account_id)),
     #my_balance <- BankAccount.testope(name_acc, transaction.amount)

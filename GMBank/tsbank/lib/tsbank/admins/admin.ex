@@ -7,7 +7,9 @@ defmodule Tsbank.Admins.Admin do
   @foreign_key_type :binary_id
   schema "admins" do
     field :role, :string
-    field :user_id, :id
+    # field :user_id, :binary_id
+    belongs_to :user, TSBank.Users.User
+    # has_many :staff, TSBank.Staffs.Staff
 
     timestamps()
   end
@@ -15,7 +17,7 @@ defmodule Tsbank.Admins.Admin do
   @doc false
   def changeset(admin, attrs) do
     admin
-    |> cast(attrs, [:role])
-    |> validate_required([:role])
+    |> cast(attrs, [:user_id, :role])
+    |> validate_required([:user_id, :role])
   end
 end

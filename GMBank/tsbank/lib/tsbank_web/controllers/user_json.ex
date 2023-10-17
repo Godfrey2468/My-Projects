@@ -25,10 +25,10 @@ defmodule TsbankWeb.UserJSON do
     }
   end
 
-  def showhata(%{user: user, token: token}) do
+  def showD(%{user: user, token: token}) do
     %{
-      # id: user.id,
-      # email: user.email,
+      id: user.id,
+      email: user.email,
       token: token
     }
   end

@@ -52,7 +52,8 @@ defmodule Tsbank.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:guardian, "~> 2.3"},
       {:guardian_db, "~> 2.0"},
-      {:bcrypt_elixir, "~> 3.0"}
+      {:bcrypt_elixir, "~> 3.0"},
+      {:ex_doc, "~> 0.30.7", only: :dev, runtime: false}
     ]
   end
 

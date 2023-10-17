@@ -6,6 +6,7 @@ defmodule TsbankWeb.AdminController do
 
   action_fallback TsbankWeb.FallbackController
 
+  @spec index(Plug.Conn.t(), any()) :: Plug.Conn.t()
   def index(conn, _params) do
     admins = Admins.list_admins()
     render(conn, :index, admins: admins)
@@ -15,7 +16,7 @@ defmodule TsbankWeb.AdminController do
     with {:ok, %Admin{} = admin} <- Admins.create_admin(admin_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/admins/#{admin}")
+      # |> put_resp_header("location", ~p"/api/admins/#{admin}")
       |> render(:show, admin: admin)
     end
   end
