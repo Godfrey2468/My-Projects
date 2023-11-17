@@ -27,7 +27,6 @@ defmodule TsbankWeb.Router do
 
   pipeline :auth do
     plug TsbankWeb.Auth.Pipeline
-
     plug TsbankWeb.Auth.SetAccount
 
   end
@@ -44,10 +43,11 @@ defmodule TsbankWeb.Router do
 
     post "/customers/create", UserController, :create
     post "/customers/login", UserController, :sign_in
+    post "/staff/create", StaffController, :create
 
   end
 
-  # For protected endpoints
+
   scope "/api/v1", TsbankWeb do
     pipe_through [:api, :auth ]
 

@@ -22,7 +22,7 @@ config :tsbank, TsbankWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4013],
   check_origin: false,
   code_reloader: true,
-  debug_errors: true,
+  debug_errors: false,
   secret_key_base: "oDh8ZPLnXORc+B7pnel17o8F0K0cfLuLb35n24ZH/a56PrbzAH1E34kLIk6ly2UO",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},

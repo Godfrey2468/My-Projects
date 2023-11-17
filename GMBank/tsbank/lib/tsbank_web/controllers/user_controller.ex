@@ -1,6 +1,8 @@
 defmodule TsbankWeb.UserController do
   @moduledoc """
-  This module is responsible for creating a user and automatically linking it to a customer.
+  This module is responsible for creating and managing user-related actions in the Tsbank application.
+
+  It provides endpoints for creating and managing both regular users and administrators.
   """
 
   use TsbankWeb, :controller
@@ -19,10 +21,41 @@ defmodule TsbankWeb.UserController do
 
   action_fallback TsbankWeb.FallbackController
 
+
+  @doc """
+  Get a list of users.
+
+  This function retrieves a list of all users and renders them in the 'index' view.
+
+  ## Params
+
+  - `conn`: The connection struct
+  - `_params`: Unused parameters
+
+  ## Returns
+
+  - `conn`: The connection struct
+  """
+
   def index(conn, _params) do
     users = Users.list_users()
     render(conn, :index, users: users)
   end
+
+  @doc """
+  Create a user and link them to a customer.
+
+  This function handles the creation of a user, signing them in, and associating them with a customer.
+
+  ## Params
+
+  - `conn`: The connection struct
+  - `user_params`: A map containing user parameters
+
+  ## Returns
+
+  - `conn`: The connection struct
+  """
 
   def create(conn, %{"user" => user_params}) do
     with {:ok, %User{} = user} <- Users.create_user(user_params),
@@ -33,6 +66,21 @@ defmodule TsbankWeb.UserController do
       |> render(:showD, %{user: user, token: token})
     end
   end
+
+  @doc """
+  Create an admin user.
+
+  This function handles the creation of an administrator user and signing them in.
+
+  ## Params
+
+  - `conn`: The connection struct
+  - `user_params`: A map containing user parameters
+
+  ## Returns
+
+  - `conn`: The connection struct
+  """
 
   ##################Create Admin###################################
   def create_admin(conn, %{"user" => user_params}) do
@@ -45,6 +93,22 @@ defmodule TsbankWeb.UserController do
       |> render(:showD, %{user: user, token: token})
     end
   end
+
+  @doc """
+  Authenticate and log in an administrator.
+
+  This function handles the authentication and login of an administrator.
+
+  ## Params
+
+  - `conn`: The connection struct
+  - `email`: The administrator's email
+  - `password`: The administrator's password
+
+  ## Returns
+
+  - `conn`: The connection struct
+  """
 
   ############################Admin Login##################################
 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON Transformer</title>
+</head>
+<body>
+    <h1>JSON Transformer</h1>
+    
+    <div>
+        <label for="jsonInput">Enter JSON:</label>
+        <textarea id="jsonInput" rows="10" cols="40"></textarea>
+    </div>
+
+    <div>
+        <label for="transformedOutput">Transformed JSON:</label>
+        <textarea id="transformedOutput" rows="10" cols="40" readonly></textarea>
+    </div>
+
+    <button id="transformButton">Transform JSON</button>
+
+    <script>
+        // Get references to the input and output elements
+        const jsonInput = document.getElementById('jsonInput');
+        const transformedOutput = document.getElementById('transformedOutput');
+        const transformButton = document.getElementById('transformButton');
+
+        // Add an event listener to the "Transform JSON" button
+        transformButton.addEventListener('click', function () {
+            try {
+                // Parse the JSON from the input
+                const inputJson = JSON.parse(jsonInput.value);
+
+                // Perform your transformation here
+                const transformedJson = transformJson(inputJson);
+
+                // Display the transformed JSON in the output textarea
+                transformedOutput.value = JSON.stringify(transformedJson, null, 2);
+            } catch (error) {
+                // Handle JSON parsing errors
+                transformedOutput.value = 'Invalid JSON: ' + error;
+            }
+        });
+
+        // Example transformation function
+        function transformJson(inputJson) {
+            const outputJson = {
+                "Service": {
+                    "password_suffix": inputJson["Network Resource Specification"]["password_suffix"],
+                    "cc": inputJson["Network Resource Specification"]["cc"],
+                    "ims_template": inputJson["Network Resource Specification"]["ims_template"],
+                    "Logical Resource": inputJson["Network Resource Specification"]["Logical Resource"],
+                    "threshold_notifications": inputJson["Network Resource Specification"]["threshold_notifications"],
+                    "access": inputJson["Network Resource Specification"]["access"],
+                    "tpl": inputJson["Network Resource Specification"]["tpl"],
+                    "sicap": inputJson["Network Resource Specification"]["sicap"],
+                    "vobb": inputJson["Network Resource Specification"]["vobb"],
+                    "ims": inputJson["Network Resource Specification"]["ims"],
+                    "hlrsn": inputJson["Network Resource Specification"]["hlrsn"],
+                    "mnc": inputJson["Network Resource Specification"]["mnc"],
+                    "vobb_realm": inputJson["Network Resource Specification"]["vobb_realm"],
+                    "xxxfinal_unit": inputJson["Network Resource Specification"]["xxxfinal_unit"],
+                    "mcc": inputJson["Network Resource Specification"]["mcc"],
+                    "ims_voice": inputJson["Network Resource Specification"]["ims_voice"],
+                    "simota_base_url": inputJson["Network Resource Specification"]["simota_base_url"],
+                    "usrSubNetType": inputJson["Network Resource Specification"]["usrSubNetType"],
+                    "usrIdentifier": inputJson["Network Resource Specification"]["usrIdentifier"],
+                    "Device": inputJson["Network Resource Specification"]["Device"],
+                    "ims_pgw_endpoint": inputJson["Network Resource Specification"]["ims_pgw_endpoint"],
+                    "network_service_names": inputJson["Network Resource Specification"]["network_service_names"],
+                    "password_gen_method": inputJson["Network Resource Specification"]["password_gen_method"],
+                    "ims_pgw_endpoint_user": inputJson["Network Resource Specification"]["ims_pgw_endpoint_user"],
+                    "Physical Resource": inputJson["Network Resource Specification"]["Physical Resource"],
+                    "usrExAttr1": inputJson["Network Resource Specification"]["usrExAttr1"],
+                    "default_quota": inputJson["Network Resource Specification"]["default_quota"],
+                    "srvStartDateTime": inputJson["Network Resource Specification"]["srvStartDateTime"],
+                    "vqt_percentage": inputJson["Network Resource Specification"]["vqt_percentage"],
+                    "ims_pgw_endpoint_pass": inputJson["Network Resource Specification"]["ims_pgw_endpoint_pass"],
+                    "password_prefix": inputJson["Network Resource Specification"]["password_prefix"],
+                    "simota": inputJson["Network Resource Specification"]["simota"],
+                    "usrBillCycleDate": inputJson["Network Resource Specification"]["usrBillCycleDate"],
+                    "ndc": inputJson["Network Resource Specification"]["ndc"],
+                    "srvName": inputJson["Network Resource Specification"]["srvName"],
+                    "usrState": inputJson["Network Resource Specification"]["usrState"],
+                    "snPatterns": inputJson["Network Resource Specification"]["snPatterns"],
+                    "ims_srvName": inputJson["Network Resource Specification"]["ims_srvName"]
+                }
+            };
+            return outputJson;
+        }
+    </script>
+</body>
+</html>

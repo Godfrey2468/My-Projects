@@ -109,20 +109,7 @@ defmodule TsbankWeb.AccountController do
     render(conn, :showdiff, accounts: IO.inspect(accounts))
   end
 
-  @doc """
-  Deposit money into an account.
 
-  This action handles depositing money into a user account.
-
-  ## Params
-
-  - `conn`: The connection struct.
-  - `params`: Not yet defined.
-
-  """
-  def deposit_money(conn, %{}) do
-    # Implement the deposit money functionality
-  end
 
   @doc """
   Show account details.
@@ -174,8 +161,7 @@ defmodule TsbankWeb.AccountController do
         render(conn, :show, account: account)
       end
     end
-   # Map.put(account,"status","activeee")
-    #Map.put(user_params, "end_date", DateTime.utc_now)
+
   end
 
   @doc """

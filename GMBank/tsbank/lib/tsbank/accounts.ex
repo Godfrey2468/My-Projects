@@ -92,6 +92,16 @@ defmodule Tsbank.Accounts do
     |> Repo.one()
   end
 
+  # ---------------------------------------
+
+  def get_num_acc(accountNumber) do
+    Account
+    |> where(accountNumber: ^accountNumber)
+    |> Repo.one()
+  end
+
+  # ---------------------------------------
+
   def get_account_name(id) do
     Account # our scema file
     |> where(id: ^id)

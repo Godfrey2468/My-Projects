@@ -46,7 +46,7 @@ defmodule TsbankWeb.AccountJSON do
       balance: account.balance
 
     }
-    #gg(account.accountNumber,account.balance)
+
   end
 
   def gg(accountNumber, balance) do

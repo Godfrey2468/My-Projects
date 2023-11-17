@@ -1,0 +1,81 @@
+{
+    "type": "object",
+"properties": {
+  "id": {
+    "type": "string",
+    "format": "uuid"
+  },
+  "name": {
+    "type": "string"
+  },
+    "Policies": {
+      "type": "object",
+      "properties": {
+        "triggers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "triggerType": {
+                "type": "string"
+              },
+              "triggerCategory": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "triggerType",
+              "triggerCategory"
+            ]
+          }
+        },
+        "validityTime": {
+          "type": "integer"
+        },
+        "quotaHoldingTime": {
+          "type": "integer"
+        },
+        "timeQuotaThreshold": {
+          "type": "integer"
+        },
+        "unitQuotaThreshold": {
+          "type": "integer"
+        },
+        "policy_states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "initial_service_policy": {
+          "type": "object",
+          "properties": {
+            "MASTER_POLICY": {
+              "type": "object",
+              "properties": {
+                "currentStatus": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "currentStatus"
+              ]
+            }
+          },
+          "required": [
+            "MASTER_POLICY"
+          ]
+        }
+      },
+      "required": [
+        "triggers",
+        "validityTime",
+        "quotaHoldingTime",
+        "timeQuotaThreshold",
+        "unitQuotaThreshold",
+        "policy_states",
+        "initial_service_policy"
+      ]
+    }
+  }
+}

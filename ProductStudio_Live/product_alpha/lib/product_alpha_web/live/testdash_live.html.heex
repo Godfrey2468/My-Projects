@@ -1,0 +1,200 @@
+<%!-- 
+<div class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full mb-1">
+        <div class="mb-4">
+            <nav class="flex mb-2" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
+                  <li class="inline-flex items-center">
+                    <a href="#" class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
+                      <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                      <a href="#" class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">E-commerce</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="flex items-center">
+                      <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                      <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500" aria-current="page">Products</span>
+                    </div>
+                  </li>
+                </ol>
+            </nav>
+            <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">All products</h1>
+        </div>
+        
+    </div>
+</div>
+ 
+
+  --%>
+
+
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>SPA Example</title>
+    <style>
+        /* Add some basic styling for the navigation and content */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <a href="#homePage" id="homeBtn">Home</a>
+        <a href="#aboutPage" id="aboutBtn">About</a>
+        <a href="#contactPage" id="contactBtn">Contact</a>
+    </div>
+    <div id="content">
+        <div class="page active" id="homePage">
+            <h1>Welcome to the Home Page</h1>
+            <p>This is the home page content.</p>
+        </div>
+        <div class="page" id="aboutPage">
+            <h1>About Us</h1>
+            <p>This is the about page content.</p>
+        </div>
+        <div class="page" id="contactPage">
+            <h1>Contact Us</h1>
+            <p>This is the contact page content.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle page navigation
+        const homeBtn = document.getElementById('homeBtn');
+        const aboutBtn = document.getElementById('aboutBtn');
+        const contactBtn = document.getElementById('contactBtn');
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        homeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('homePage');
+        });
+
+        aboutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('aboutPage');
+        });
+
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showPage('contactPage');
+        });
+
+        // Initial page display based on the URL hash
+        const initialHash = window.location.hash;
+        if (initialHash) {
+            showPage(initialHash.substring(1));
+        }
+    </script>
+</body>
+</html>
+
+ <%!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>SPA Example</title>
+    <style>
+        /* Add some basic styling for the navigation and content */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <button id="homeBtn">Home</button>
+        <button id="aboutBtn">About</button>
+        <button id="contactBtn">Contact</button>
+    </div>
+    <div id="content">
+        <div class="page active" id="homePage">
+            <h1>Welcome to the Home Page</h1>
+            <p>This is the home page content.</p>
+        </div>
+        <div class="page" id="aboutPage">
+            <h1>About Us</h1>
+            <p>This is the about page content.</p>
+        </div>
+        <div class="page" id="contactPage">
+            <h1>Contact Us</h1>
+            <p>This is the contact page content.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle page navigation
+        const homeBtn = document.getElementById('homeBtn');
+        const aboutBtn = document.getElementById('aboutBtn');
+        const contactBtn = document.getElementById('contactBtn');
+        const homePage = document.getElementById('homePage');
+        const aboutPage = document.getElementById('aboutPage');
+        const contactPage = document.getElementById('contactPage');
+
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+        }
+
+        homeBtn.addEventListener('click', () => showPage('homePage'));
+        aboutBtn.addEventListener('click', () => showPage('aboutPage'));
+        contactBtn.addEventListener('click', () => showPage('contactPage'));
+
+        // Initial page display
+        showPage('homePage');
+    </script>
+</body>
+</html>
+
+  --%>
