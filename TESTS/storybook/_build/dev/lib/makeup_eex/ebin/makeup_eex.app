@@ -1,0 +1,13 @@
+{application,makeup_eex,
+             [{optional_applications,[]},
+              {applications,[kernel,stdlib,elixir,logger,makeup,nimble_parsec,
+                             makeup_elixir,makeup_html]},
+              {description,"(H)EEx lexer for makeup"},
+              {modules,['Elixir.Makeup.Lexers.EExLexer',
+                        'Elixir.Makeup.Lexers.EExLexer.Application',
+                        'Elixir.Makeup.Lexers.EExLexer.Splicer',
+                        'Elixir.Makeup.Lexers.EExLexer.Testing',
+                        'Elixir.Makeup.Lexers.HEExLexer','Elixir.MakeupEEx']},
+              {registered,[]},
+              {vsn,"0.1.1"},
+              {mod,{'Elixir.Makeup.Lexers.EExLexer.Application',[]}}]}.

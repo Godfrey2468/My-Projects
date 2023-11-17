@@ -1,0 +1,1 @@
+searchData={"content_type":"text/markdown","items":[{"doc":"","ref":"Jsontransformer.html","title":"Jsontransformer","type":"module"},{"doc":"","ref":"Jsontransformer.html#hello/0","title":"Jsontransformer.hello/0","type":"function"}]}

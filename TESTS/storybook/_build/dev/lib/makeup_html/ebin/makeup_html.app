@@ -1,0 +1,13 @@
+{application,makeup_html,
+             [{compile_env,[{makeup_html,[inline],error}]},
+              {optional_applications,[]},
+              {applications,[kernel,stdlib,elixir,logger,makeup]},
+              {description,"HTML lexer for the Makeup syntax highlighter.\n"},
+              {modules,['Elixir.Makeup.Lexers.HTMLLexer',
+                        'Elixir.Makeup.Lexers.HTMLLexer.Application',
+                        'Elixir.Makeup.Lexers.HTMLLexer.Combinators',
+                        'Elixir.Makeup.Lexers.HTMLLexer.HTMLAttributes',
+                        'Elixir.Makeup.Lexers.HTMLLexer.HTMLElements']},
+              {registered,[]},
+              {vsn,"0.1.1"},
+              {mod,{'Elixir.Makeup.Lexers.HTMLLexer.Application',[]}}]}.
